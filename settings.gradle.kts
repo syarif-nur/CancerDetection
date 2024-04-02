@@ -13,7 +13,6 @@ dependencyResolutionManagement {
         maven { url = uri("https://www.jitpack.io") }
     }
 }
-
 rootProject.name = "Asclepius"
 include(":app")
  

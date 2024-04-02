@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,8 +51,26 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.tensorflow.lite.task.vision)
-    implementation ("com.github.yalantis:ucrop:2.2.8-native")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation(libs.ucrop)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+
+    implementation (libs.koin.core)
+    implementation (libs.insert.koin.koin.android)
+
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+    implementation (libs.glide)
+
 }
