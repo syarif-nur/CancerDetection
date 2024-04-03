@@ -20,7 +20,7 @@ data class ArticleList(
     val source: SourceList? = null,
 
     @field:SerializedName("title")
-    val title: String? = null,
+    val title: String,
 
     @field:SerializedName("url")
     val url: String? = null,

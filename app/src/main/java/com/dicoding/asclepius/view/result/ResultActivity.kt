@@ -38,6 +38,7 @@ class ResultActivity : AppCompatActivity() {
                 val resultArticle = withContext(Dispatchers.IO) {
                     resulViewModel.getArticleList()
                 }
+                binding.progressBar.visibility = View.VISIBLE
                 resultArticle.observe(this@ResultActivity) { apiResponse ->
                     when (apiResponse) {
                         is ApiResponse.Success -> {
@@ -45,7 +46,7 @@ class ResultActivity : AppCompatActivity() {
                             resultAdapter.differ.submitList(apiResponse.data)
                         }
 
-                        ApiResponse.Empty -> binding.progressBar.visibility = View.VISIBLE
+                        ApiResponse.Empty -> binding.progressBar.visibility = View.GONE
                         is ApiResponse.Error -> {
                             binding.progressBar.visibility = View.GONE
                             Toast.makeText(

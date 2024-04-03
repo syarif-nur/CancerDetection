@@ -16,7 +16,10 @@ class RemoteDataSource(private val apiService: ApiService) {
                 val response = apiService.getCancerArticle()
                 val dataArray = response.articles
                 if (dataArray.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.articles))
+                    val filteredArticles = response.articles.filter { article ->
+                        !article.title.contains("[Removed]", ignoreCase = true)
+                    }
+                    emit(ApiResponse.Success(filteredArticles))
                 } else {
                     emit(ApiResponse.Empty)
                 }
