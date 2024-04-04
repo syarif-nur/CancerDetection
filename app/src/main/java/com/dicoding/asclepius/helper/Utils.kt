@@ -1,8 +1,14 @@
 package com.dicoding.asclepius.helper
 
+import Resource
 import android.content.Context
+import android.database.Cursor
 import android.net.Uri
 import android.os.Environment
+import com.dicoding.asclepius.data.local.entity.CancerEntity
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -14,4 +20,12 @@ fun createOutputFileUri(context: Context): Uri {
     return Uri.fromFile(File(storageDir, imageFileName))
 }
 
-
+fun getCursorDataAsFlow(entityFlow: Flow<List<CancerEntity>>): Flow<Resource<List<CancerEntity>>> {
+    return entityFlow.map { entities ->
+        try {
+            Resource.Success(entities.reversed())
+        } catch (e: Exception) {
+            Resource.Error(e.message ?: "Unknown error")
+        }
+    }
+}

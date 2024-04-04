@@ -7,6 +7,7 @@ import com.dicoding.asclepius.data.local.LocalDataSource
 import com.dicoding.asclepius.data.local.room.CancerDatabase
 import com.dicoding.asclepius.data.remote.RemoteDataSource
 import com.dicoding.asclepius.data.remote.network.ApiService
+import com.dicoding.asclepius.view.history.HistoryViewModel
 import com.dicoding.asclepius.view.result.ResultViewModel
 import com.dicoding.asclepius.view.scan.ScanViewModel
 import okhttp3.OkHttpClient
@@ -50,4 +51,5 @@ val myModule = module {
     }
     viewModel { ResultViewModel(get()) }
     viewModel { ScanViewModel(get()) }
+    viewModel { HistoryViewModel(get()) }
 }

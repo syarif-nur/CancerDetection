@@ -1,14 +1,19 @@
 package com.dicoding.asclepius.data
 
+import Resource
 import com.dicoding.asclepius.data.local.LocalDataSource
 import com.dicoding.asclepius.data.local.entity.CancerEntity
 import com.dicoding.asclepius.data.remote.RemoteDataSource
 import com.dicoding.asclepius.data.remote.network.ApiResponse
 import com.dicoding.asclepius.data.remote.response.ArticleList
+import com.dicoding.asclepius.helper.getCursorDataAsFlow
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 
 interface ICancerRepository {
-    fun getAllCancer(): Flow<List<CancerEntity>>
+    fun getAllCancer(): Flow<Resource<List<CancerEntity>>>
 
     suspend fun insertCancer(cancer: CancerEntity)
 
@@ -20,8 +25,8 @@ class CancerRepository(
     private val localDataSource: LocalDataSource
 ) : ICancerRepository {
 
-    override fun getAllCancer(): Flow<List<CancerEntity>> {
-        return localDataSource.getAllCancer()
+    override fun getAllCancer(): Flow<Resource<List<CancerEntity>>> {
+        return getCursorDataAsFlow(localDataSource.getAllCancer())
     }
 
 

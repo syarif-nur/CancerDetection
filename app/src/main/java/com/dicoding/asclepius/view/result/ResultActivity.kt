@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -20,10 +21,12 @@ class ResultActivity : AppCompatActivity() {
 
     private val resulViewModel: ResultViewModel by viewModel()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.backButton.setOnClickListener { onBackPressed() }
 
         val imageUri = Uri.parse(intent.getStringExtra(EXTRA_IMAGE_URI))
         val result = intent.getStringExtra(EXTRA_RESULT)
@@ -57,7 +60,7 @@ class ResultActivity : AppCompatActivity() {
                         }
                     }
                 }
-                with(binding.rvCancer) {
+                with(binding.rvArticle) {
                     layoutManager = LinearLayoutManager(context)
                     setHasFixedSize(true)
                     adapter = resultAdapter
