@@ -20,9 +20,9 @@ import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 
 
 class ImageClassifierHelper(
-    val threshold: Float = 0.1f,
-    var maxResult: Int = 1,
-    val modelName: String = "cancer_classification.tflite",
+    private val threshold: Float = 0.1f,
+    private var maxResult: Int = 1,
+    private val modelName: String = "cancer_classification.tflite",
     val context: Context,
     val classifierListener: ClassifierListener?
 ) {

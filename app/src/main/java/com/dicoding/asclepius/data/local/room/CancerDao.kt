@@ -1,6 +1,5 @@
 package com.dicoding.asclepius.data.local.room
 
-import Resource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy

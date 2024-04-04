@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.dicoding.asclepius.data.ICancerRepository
 
-class HistoryViewModel(private val repository: ICancerRepository) : ViewModel() {
+class HistoryViewModel(repository: ICancerRepository) : ViewModel() {
     val cancerList = repository.getAllCancer().asLiveData()
 }

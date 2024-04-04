@@ -1,8 +1,8 @@
 package com.dicoding.asclepius.di
 
 import androidx.room.Room
-import com.dicoding.asclepius.data.ICancerRepository
 import com.dicoding.asclepius.data.CancerRepository
+import com.dicoding.asclepius.data.ICancerRepository
 import com.dicoding.asclepius.data.local.LocalDataSource
 import com.dicoding.asclepius.data.local.room.CancerDatabase
 import com.dicoding.asclepius.data.remote.RemoteDataSource

@@ -1,6 +1,6 @@
 package com.dicoding.asclepius.view.history
 
-import Resource
+import com.dicoding.asclepius.data.local.Resource
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
