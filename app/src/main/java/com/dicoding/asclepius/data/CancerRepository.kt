@@ -1,7 +1,7 @@
 package com.dicoding.asclepius.data
 
-import com.dicoding.asclepius.data.local.Resource
 import com.dicoding.asclepius.data.local.LocalDataSource
+import com.dicoding.asclepius.data.local.Resource
 import com.dicoding.asclepius.data.local.entity.CancerEntity
 import com.dicoding.asclepius.data.remote.RemoteDataSource
 import com.dicoding.asclepius.data.remote.network.ApiResponse
