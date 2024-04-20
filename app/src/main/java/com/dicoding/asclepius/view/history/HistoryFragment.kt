@@ -58,15 +58,6 @@ class HistoryFragment : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-
-                        else -> {
-                            binding.progressBar.visibility = View.GONE
-                            Toast.makeText(
-                                requireContext(),
-                                "Oops Something Wrong",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
                     }
                 }
             }
